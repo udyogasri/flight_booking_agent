@@ -347,6 +347,15 @@ class FlightAgent:
 # ============================================================
 
 app = FastAPI(title="AI Flight Booking Agent")
+cors = ["http://localhost:3000"]
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+   CORSMiddleware,
+   allow_origins=cors,
+   allow_credentials=True,
+   allow_methods=["*"],
+   allow_headers=["*"],
+)
 
 # Initialize the agent
 agent = FlightAgent()
